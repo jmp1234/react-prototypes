@@ -13,12 +13,14 @@ new WebpackDevServer(webpack(config), {
     noInfo: false,
     stats: {
         assets: false,
-        colors: true,
-        version: false,
-        hash: false,
-        timings: false,
+        children: false,
         chunks: false,
-        chunkModules: false
+        chunkModules: false,
+        colors: true,
+        hash: false,
+        modules: false,
+        timings: true,
+        version: false
     }
 }).listen(PORT, 'localhost', function(err){
     if(err){

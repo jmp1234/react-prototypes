@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+    mode: 'development',
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         './index.js'
@@ -26,12 +27,14 @@ module.exports = {
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [ 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
-                    'image-webpack-loader?bypassOnDebug' ]
+                use: [ 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]' ]
             }
         ]
     },
     plugins: [
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new webpack.DefinePlugin({
+            '__REACT_DEVTOOLS_GLOBAL_HOOK__': '({ isDisabled: true })'
+        })
     ]
 };
