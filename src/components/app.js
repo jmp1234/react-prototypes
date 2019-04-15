@@ -1,10 +1,11 @@
 import React from 'react';
-import './app.css';
-import Scrapbook from './scrapbook';
+import Clock from './clock';
 
-export default props => (
-  <div className="main-container">
-    <h1 className="main-title">Scrapbook</h1>
-    <Scrapbook />
-  </div>
-)
+export default props => {
+  return (
+    <div className="container">
+      <h1 className="text-center">TEXT</h1>
+      <Clock />
+    </div>
+  )
+}
